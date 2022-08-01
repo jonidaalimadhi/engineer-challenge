@@ -4,7 +4,7 @@ Thank you for applying at Feather and taking the time to do this home assessment
 
 The goal of this project is to let you **show off your coding and problem-solving skills**, on a task that resembles the kind of work you’ll be doing with us.
 
-This coding challenge applies to **frontend, backend, and full-stack roles**. Depending on the position you are applying for, you can focus on your specific area.  
+This coding challenge applies to **frontend, backend, and full-stack roles**. Depending on the position you are applying for, you can focus on your specific area.
 
 You can spend as little or as much time as you like on this project. We've added some initial boilerplate to help you get started, but **feel free to refactor every part of this app as you may seem fit**.
 
@@ -15,11 +15,11 @@ You can spend as little or as much time as you like on this project. We've added
 
 ## Engineering challenge
 
-We've prepared several different user stories to work on. Depending on what position you applied to, pick one of them:  
+We've prepared several different user stories to work on. Depending on what position you applied to, pick one of them:
+
 - [Backend](./backend-readme.md)
 - [Frontend](./frontend-readme.md)
 - [Full Stack](./full-stack-readme.md)
-
 
 ## Task requirements
 
@@ -59,6 +59,10 @@ You can see the app on `http://localhost:3000`
 
 The API should be running on `http://localhost:4000`
 
+6. If you feel like running some tests use:
+
+   docker exec {frontend OR backend} npm test
+
 ** Note **
 If you want to install new dependencies, you'll have to do it inside the docker container. To do that, you can use the following command:
 
@@ -82,16 +86,16 @@ Feel free to update or add more endpoints to accommodate or improve your solutio
 
 ### Policy
 
-| fields         | type                            | comment                                       |
-| -------------- | ------------------------------- | --------------------------------------------- |
-| id             | string                          | Used to identify the policy                   |
-| customer       | [Customer](#Customer)           | Object holding the customer's informations    |
-| provider       | string                          | Name of the provider (Allianz, AXA…)          |
-| insuranceType  | [InsuranceType](#InsuranceType) | Type of the insurance (Liability, Household…) |
-| status         | [PolicyStatus](#PolicyStatus)   | Status of the insurance (Active, Cancelled)   |
-| startDate      | date                            | Date when the policy should start             |
-| endDate        | date                            | Date when the policy ends                     |
-| createdAt      | date                            | Date when the record was created              |
+| fields        | type                            | comment                                       |
+| ------------- | ------------------------------- | --------------------------------------------- |
+| id            | string                          | Used to identify the policy                   |
+| customer      | [Customer](#Customer)           | Object holding the customer's informations    |
+| provider      | string                          | Name of the provider (Allianz, AXA…)          |
+| insuranceType | [InsuranceType](#InsuranceType) | Type of the insurance (Liability, Household…) |
+| status        | [PolicyStatus](#PolicyStatus)   | Status of the insurance (Active, Cancelled)   |
+| startDate     | date                            | Date when the policy should start             |
+| endDate       | date                            | Date when the policy ends                     |
+| createdAt     | date                            | Date when the record was created              |
 
 ### Customer
 
@@ -101,6 +105,17 @@ Feel free to update or add more endpoints to accommodate or improve your solutio
 | firstName   | string | Customer’s first name         |
 | lastName    | string | Customer’s last name          |
 | dateOfBirth | date   | Customer’s date of birth      |
+
+Added Relation FamilyMember Table linked to Policy
+
+### FamilyMember
+
+| fields    | type              | comment                            |
+| --------- | ----------------- | ---------------------------------- |
+| id        | uuid              | Used to identify the customer      |
+| firstName | string            | Member’s first name                |
+| lastName  | string            | Member's last name                 |
+| policy    | [Policy](#Policy) | Object holding the member's policy |
 
 ### InsuranceType
 
@@ -113,11 +128,10 @@ Feel free to update or add more endpoints to accommodate or improve your solutio
 ## General questions
 
 - How much time did you spend working on the solution?
+  I spent the weekend working on the solution (something around 12-15 hours)
 - What’s the part of the solution you are most proud of?
-
-  _You can share a code snippet here if you feel like it_
-
+  The search functionality
 - If you had more time, what other things you would like to do?
-- Do you have any feedback regarding this coding challenge?  
-
-  _Is the initial setup working?, is something missing?, or any other comment_
+  If I had more time, I would have added a route validator package, a more centralized error handling, would have worked more with defining types. Also would have added more testing on both backend and frontend.
+- Do you have any feedback regarding this coding challenge?
+  The initial setup was working fine, the only "overall" changes I had to do was change node version of docker image since it did not comply with ts-jest and @types/jest. Other than that, everything else was working fine and I appreciate getting a boilerplate to work which already had some structure and was only working on the functionality itself.

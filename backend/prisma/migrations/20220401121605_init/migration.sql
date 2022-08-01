@@ -28,5 +28,19 @@ CREATE TABLE "Policy" (
     CONSTRAINT "Policy_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "FamilyMember" (
+    "id" UUID NOT NULL,
+    "policyId" UUID NOT NULL,
+    "firstName" VARCHAR(255) NOT NULL,
+    "lastName" VARCHAR(255) NOT NULL,
+
+    CONSTRAINT "FamilyMember_pkey" PRIMARY KEY ("id")
+);
+
 -- AddForeignKey
 ALTER TABLE "Policy" ADD CONSTRAINT "Policy_customerId_fkey" FOREIGN KEY ("customerId") REFERENCES "Customer"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+
+-- AddForeignKey
+ALTER TABLE "FamilyMember" ADD CONSTRAINT "FamilyMember_policyId_fkey" FOREIGN KEY ("policyId") REFERENCES "Policy"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
