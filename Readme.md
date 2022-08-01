@@ -130,7 +130,7 @@ Added Relation FamilyMember Table linked to Policy
 - How much time did you spend working on the solution?
   I spent the weekend working on the solution (something around 12-15 hours)
 - What’s the part of the solution you are most proud of?
-  The search functionality
+  The search functionality working with debounce requests, validation on frontend and trying to make it fully work (with spaces, surnames only, name and surname etc.)
 - If you had more time, what other things you would like to do?
   If I had more time, I would have added a route validator package, a more centralized error handling, would have worked more with defining types. Also would have added more testing on both backend and frontend.
 - Do you have any feedback regarding this coding challenge?
